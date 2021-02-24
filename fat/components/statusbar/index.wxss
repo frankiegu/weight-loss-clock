@@ -1,0 +1,53 @@
+.pf { position: fixed; }
+.g-flex { display: -webkit-box; display: flex; display: -ms-flex; display: -webkit-flex; }
+.g-flex-grow1 { flex-grow: 1; flex-basis: 0; -webkit-flex-basis: 0; }
+.g-font-500{ font-family: "alibaba-medium"; font-weight: 500; }
+.g-pointer { cursor: pointer; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.g-status-bar{ top: 0; left: 0; right: 0; z-index: 9999; }
+
+
+.g-status-bar .wrap{}
+.g-status-bar .wrap .cont{}
+.g-status-bar .wrap .box{ align-items: center; }
+.g-status-bar .wrap .box .item1{ margin-right: 20rpx; }
+.g-status-bar .wrap .box .item1 .menu{}
+.g-status-bar .wrap .box .item1 .menu .item-back{ flex: 0 0 48rpx; height: 48rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052201.png") no-repeat center/36rpx auto; }
+.g-status-bar .wrap .box .item1 .menu .item-index{ flex: 0 0 48rpx; height: 48rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052202.png") no-repeat center/48rpx auto; }
+.g-status-bar .wrap .box .item1.type1{ flex: 0 0 48rpx; }
+.g-status-bar .wrap .box .item1.type1 .menu{}
+.g-status-bar .wrap .box .item1.type1 .menu .item-back{}
+.g-status-bar .wrap .box .item1.type2{ flex: 0 0 56rpx; height: 56rpx; border: 2rpx solid transparent; border-radius: 50%; }
+.g-status-bar .wrap .box .item1.type2 .menu{ width: 56rpx; height: 56rpx; align-items: center; justify-content: center; }
+.g-status-bar .wrap .box .item1.type2 .menu .item-index{}
+.g-status-bar .wrap .box .item1.type3{ flex: 0 0 180rpx; height: 56rpx; border: 2rpx solid transparent; border-radius: 40rpx; }
+.g-status-bar .wrap .box .item1.type3 .menu{ width: 180rpx; height: 56rpx; align-items: center; justify-content: center; }
+.g-status-bar .wrap .box .item1.type3 .menu .item-back{ flex-grow: 1; flex-basis: 0; -webkit-flex-basis: 0; position: relative; }
+.g-status-bar .wrap .box .item1.type3 .menu .item-back::after{ content: ""; position: absolute; right: 0; top: 6rpx; bottom: 6rpx; width: 2rpx; }
+.g-status-bar .wrap .box .item1.type3 .menu .item-index{ flex-grow: 1; flex-basis: 0; -webkit-flex-basis: 0; }
+.g-status-bar .wrap .box .item2{ font-size: 32rpx; line-height: 44rpx; }
+.g-status-bar.default .wrap .box .item1 .menu .item-back{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052201.png") no-repeat center/36rpx auto; }
+.g-status-bar.default .wrap .box .item1 .menu .item-index{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052202.png") no-repeat center/48rpx auto; }
+.g-status-bar.default .wrap .box .item1.type2{ border-color: #FFF; }
+.g-status-bar.default .wrap .box .item1.type3{ border-color: #FFF; }
+.g-status-bar.default .wrap .box .item1.type3 .menu .item-back::after{ background: #FFF; }
+.g-status-bar.default .wrap .box .item2{ color: #FFF; }
+.g-status-bar.default-black .wrap .box .item1 .menu .item-back{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052204.png") no-repeat center/36rpx auto; }
+.g-status-bar.default-black .wrap .box .item1 .menu .item-index{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052203.png") no-repeat center/48rpx auto; }
+.g-status-bar.default-black .wrap .box .item1.type2{ border-color: #E5E5E5; }
+.g-status-bar.default-black .wrap .box .item1.type3{ border-color: #E5E5E5; }
+.g-status-bar.default-black .wrap .box .item1.type3 .menu .item-back::after{ background: #E5E5E5; }
+.g-status-bar.default-black .wrap .box .item2{ color: #333333; }
+.g-status-bar.white{ background: #FFF; }
+.g-status-bar.white .wrap .box .item1 .menu .item-back{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052204.png") no-repeat center/36rpx auto; }
+.g-status-bar.white .wrap .box .item1 .menu .item-index{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052203.png") no-repeat center/48rpx auto; }
+.g-status-bar.white .wrap .box .item1.type2{ border-color: #E5E5E5; }
+.g-status-bar.white .wrap .box .item1.type3{ border-color: #E5E5E5; }
+.g-status-bar.white .wrap .box .item1.type3 .menu .item-back::after{ background: #E5E5E5; }
+.g-status-bar.white .wrap .box .item2{ color: #333333; }
+.g-status-bar.black{ background:linear-gradient(180deg,#565656 0%,#010101 100%); }
+.g-status-bar.black .wrap .box .item1 .menu .item-back{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052201.png") no-repeat center/36rpx auto; }
+.g-status-bar.black .wrap .box .item1 .menu .item-index{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2020052202.png") no-repeat center/48rpx auto; }
+.g-status-bar.black .wrap .box .item1.type2{ border-color: #FFF; }
+.g-status-bar.black .wrap .box .item1.type3{ border-color: #FFF; }
+.g-status-bar.black .wrap .box .item1.type3 .menu .item-back::after{ background: #FFF; }
+.g-status-bar.black .wrap .box .item2{ color: #FFF; }

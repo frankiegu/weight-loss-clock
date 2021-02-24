@@ -1,0 +1,7 @@
+/* pages/v1-index/index.wxss */
+page {
+  background: linear-gradient(180deg, #565656, #010101) no-repeat;
+  background-repeat: no-repeat;
+  background-size: 100% 690rpx;
+  /* background-position: top center; 可不加 */
+  }

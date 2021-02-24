@@ -1,0 +1,31 @@
+<!--pages/v1-reward/index.wxml-->
+<wxs module="turnRmbFun" src="../../base/turnRmb.wxs"></wxs>
+
+<gStatusbar type="1" title="" theme="default"></gStatusbar>
+<view class="rewardWrap">
+  <view class="wrap">
+    <!--  -->
+    <view class="header">
+      <view class="box g-flex">
+          <view class="item g-pointer item{{ index + 1 }}" data-num="{{ index }}" wx:for="{{ 6 }}" bindtap="payFun"></view>
+        </view>
+    </view>
+    <!--  -->
+    <view class="section"></view>
+    <view class="line"></view>
+    <!--  -->
+    <view class="footer" wx:if="{{ infoArr.length > 0 && total > 0 }}">
+      <view class="box">
+        <view class="title tc g-font-size32 g-font-blod">已有{{turnRmbFun.api( total )}}人对参与者进行打赏</view>
+        <view class="imgBox g-flex g-flex-wrap g-flex-i-center"><image src="{{ item != '' ? item : defaultImg }}" wx:for="{{ infoArr }}" class="item g-radius-half"></image></view>
+      </view>
+    </view>
+    <!--  -->
+  </view>
+</view>
+
+<!-- 打卡成功弹窗 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ !layerShow }}" bindtap="closeLayerFun"
+  catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-thanks {{ layerShow ? 'active' : '' }}"
+  catchtouchmove="true" bindtap="closeLayerFun"></view>

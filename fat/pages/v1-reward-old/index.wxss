@@ -1,0 +1,2 @@
+/* pages/v1-reward/index.wxss */
+page{ background: linear-gradient(180deg, #030303 0%, #010101 100%); }

@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gStatusbar": "/components/statusbar/index",
+    "gfooter": "/components/gfooter/index",
+    "ff-canvas": "@antv/f2-canvas"
+  }
+}

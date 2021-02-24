@@ -1,0 +1,6 @@
+<view class="g-footer">
+  <view class="appreciate g-flex g-flex-c-center">
+    <view class="item tc g-c-aaa g-font-size28 g-radius10" bindtap="linkRewardFun">🤡🙈 赞赏开发者 💖🥰</view>
+  </view>
+  <view class="tip tc g-font-size28 g-c-aaa" wx:if="{{ txt != '' }}">{{ txt }}</view>
+</view>

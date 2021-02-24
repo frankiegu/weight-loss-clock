@@ -1,0 +1,77 @@
+<!--pages/v1-report-steps/index.wxml-->
+<wxs module="turnRmbFun" src="../../base/turnRmb.wxs"></wxs>
+<gStatusbar type="1" title="" theme="{{ theme }}"></gStatusbar>
+
+<view class="reportWrap" wx:if="{{ infoObj != '' }}">
+  <view class="wrap">
+    <!--  -->
+    <view class="header g-c-white">
+      <view class="box">
+        <view class="title g-font-size32 g-font-500">当前情况</view>
+        <view class="nav g-flex g-font-size28 g-flex-i-center">
+          <view class="item tc g-flex-grow1">
+            <view class="div1">最新步数</view>
+            <view class="div2"><text class="g-font-size36 txt1 g-font-500">{{turnRmbFun.api(infoObj.todaySteps)}}</text><text class="txt2">步</text>
+            </view>
+          </view>
+          <view class="item tc g-flex-grow1">
+            <view class="div1">30天平均步数</view>
+            <view class="div2"><text class="g-font-size36 txt1 g-font-500">{{turnRmbFun.api(infoObj.averageSteps)}}</text><text class="txt2">步</text>
+            </view>
+          </view>
+          <view class="item tc g-flex-grow1">
+            <view class="div1">最高步数</view>
+            <view class="div2"><text class="g-font-size36 txt1 g-font-500">{{turnRmbFun.api(infoObj.highestSteps)}}</text><text class="txt2">步</text></view>
+          </view>
+        </view>
+        <view class="tip g-font-size28" wx:if="{{ infoObj.days > 0 }}">当前统计：{{ infoObj.dateTime }}至今日，共<text class="txt g-font-500">{{ infoObj.days }}</text>天</view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="section">
+      <view class="chart cshadow g-radius14 g-bg-white">
+        <view class="box">
+          <view class="g-title g-flex g-flex-i-center title">
+            <view class="item1"></view>
+            <view class="item2 g-flex-grow1 g-font-500 g-font-size32">运动走向</view>
+          </view>
+          <view class="g-default-nodata" wx:if="{{ canvasArr.length == 0 }}">
+            <view class="icon"></view>
+            <view class="tip tc">暂无统计数据</view>
+          </view>
+          <view class="cont" wx:else>
+            <!-- 
+              xx.wxml 视图，使用 ff-canvas 组件，
+              其中 opts 是一个我们在 xx.js 中定义的对象，必设属性，
+              它使得图表能够在页面加载后被初始化并设置，详见 xx.js 中的使用
+            -->
+            <ff-canvas id="column-report" canvas-id="column" opts="{{ opts }}"></ff-canvas>
+          </view>
+        </view>
+      </view>
+      <view class="content cshadow g-radius14 g-bg-white">
+        <view class="box">
+          <view class="g-title g-flex g-flex-i-center title">
+            <view class="item1"></view>
+            <view class="item2 g-flex-grow1 g-font-500 g-font-size32">月报表</view>
+          </view>
+          <view class="g-default-nodata" wx:if="{{ canvasArr.length == 0 }}">
+            <view class="icon"></view>
+            <view class="tip tc">暂无统计数据</view>
+          </view>
+          <view class="ul" wx:else>
+            <view class="li g-flex g-flex-i-center" wx:for="{{ canvasArr }}" wx:key="{{ index  }}">
+              <view class="item1 g-radius-half"></view>
+              <view class="item2 g-flex-grow1 g-font-size28"><text class="txt1">{{ item.countDate }}</text><text class="txt2 g-c-999">{{ item.week }}</text>
+              </view>
+              <view class="item3 tr g-font-500"><text class="txt1 g-font-size32">{{turnRmbFun.api(item.steps)}}</text><text class="txt2 g-font-size24">步</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <gfooter></gfooter>
+    <!--  -->
+  </view>
+</view>

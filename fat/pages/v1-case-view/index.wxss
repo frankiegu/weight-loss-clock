@@ -1,0 +1,2 @@
+page{ height: 100%; }
+.wrap{ padding-top: 140rpx; }

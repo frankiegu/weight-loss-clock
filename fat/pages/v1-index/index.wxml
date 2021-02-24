@@ -1,0 +1,256 @@
+<wxs module="turnRmbFun" src="../../base/turnRmb.wxs"></wxs>
+
+<!-- <official-account></official-account> -->
+
+<gStatusbar type="4" title="" theme="{{ theme }}"></gStatusbar>
+
+<view class="indexWrap">
+  <view class="wrap">
+    <view class="header g-c-white">
+      <!-- 未授权 -->
+      <view class="box box1" wx:if="{{ !uerIsRegister }}">
+        <view class="banner g-flex g-flex-c-center"></view>
+        <view class="tip tc g-font-size32">站着不动，你永远都只是观众</view>
+        <view class="btn g-flex g-flex-c-center">
+          <button class="g-pointer g-font-500 g-radius43 tc g-btn" open-type="getUserInfo" lang="zh_CN" data-type="clock" bindtap="updateTypeFun" bindgetuserinfo="queryUpdateInfo">去打卡</button>
+        </view>
+      </view>
+      <!-- 未授权 end -->
+      <!-- 已授权 -->
+      <view class="box box2" wx:if="{{ uerIsRegister && userInfo != '' }}">
+        <view class="user g-flex g-flex-i-center">
+          <view class="img g-radius-half g-of-hide">
+            <image src="{{ userInfo.photo ? userInfo.photo : defaultImg }}" class="g-wh-full"></image>
+          </view>
+          <view class="name g-font-500 f-font-size32">{{ userInfo.nickName }}</view>
+        </view>
+        <view class="title .g-font-size36 g-font-500">我的数据</view>
+        <view class="time g-font-size28 g-flex g-flex-i-center g-flex-c-between">
+          <view class="today">今日体重</view>
+          <view class="history tr g-pointer g-c g-pointer" bindtap="linkWeightHistoryFun">历史体重</view>
+        </view>
+        <!-- 今日 未打卡 -->
+        <view class="weight" wx:if="{{ weightInfo.signToDay == false || weightInfo.todayWeight == 0 }}">
+          <view class="unClock g-flex g-flex-i-center">
+            <view class="item g-font-500 g-radius43 tc g-btn g-radius30" bindtap="linkClockFun">去打卡</view>
+          </view>
+        </view>
+        <!-- 今日 已打卡 -->
+        <view class="weight" wx:if="{{ weightInfo.signToDay && weightInfo.todayWeight > 0 }}">
+          <view class="clock g-flex g-flex-i-end">
+            <view class="g-font-500 g-font-size64 item1">{{ weightInfo.todayWeight }}</view>
+            <view class="g-font-500 g-font-size32 item2">kg</view>
+            <view class="item3 g-font-size28 g-radius22" bindtap="linkClockFun">更新</view>
+          </view>
+        </view>
+        <view class="statistics g-flex g-flex-i-center">
+          <view class="item tc g-flex-grow1">
+            <view class="num g-font-500 g-font-size36">{{ weightInfo.signDaySum }}</view>
+            <view class="txt g-font-size28">累计打卡(天)</view>
+          </view>
+          <view class="item tc g-flex-grow1">
+            <view class="num g-font-500 g-font-size36">{{ weightInfo.durationDaySum }}</view>
+            <view class="txt g-font-size28">连续打卡(天)</view>
+          </view>
+        </view>
+      </view>
+      <!-- end -->
+    </view>
+    <!-- 排行榜 -->
+    <!-- 未授权 -->
+    <button class="g-radius14 g-bg-white cshadow rangking g-pointer"  open-type="getUserInfo" lang="zh_CN" data-type="rangking" bindtap="updateTypeFun" bindgetuserinfo="queryUpdateInfo" wx:if="{{ !uerIsRegister }}">
+      <view class="box" wx:if="{{ appInfo != '' }}">
+        <view class="title g-flex g-flex-i-center">
+          <view class="item1 g-flex-grow1 g-font-size32 g-font-500">{{ defaultAppName }}</view>
+          <view class="item2 g-c-999 g-font-size28 tr">排行榜</view>
+        </view>
+        <view class="participants g-flex g-flex-i-center">
+          <view class="imgBox" wx:if="{{ appInfo.photos.length > 0 }}">
+            <image class="img g-radius-half img{{ index + 1 }}" src="{{ item ? item : defaultImg }}" wx:for="{{ appInfo.photos }}" wx:key="index"></image>
+          </view>
+          <view class="num g-font-size24 g-c-666">{{turnRmbFun.api(appInfo.totalMember)}}人参与 | {{turnRmbFun.api(appInfo.totalCount)}}次打卡</view>
+        </view>
+        <view class="allTime g-font-size28">{{ appInfo.beginTime }}-{{ appInfo.endTime }}（共{{ appInfo.days }}天）</view>
+      </view>
+    </button>
+    <!-- 已授权 -->
+    <view class="g-radius14 g-bg-white cshadow rangking g-pointer" bindtap="linkRankingFun" wx:if="{{ uerIsRegister }}">
+      <view class="box" wx:if="{{ appInfo != '' }}">
+        <view class="title g-flex g-flex-i-center">
+          <view class="item1 g-flex-grow1 g-font-size32 g-font-500">{{ defaultAppName }}</view>
+          <view class="item2 g-c-999 g-font-size28 tr">排行榜</view>
+        </view>
+        <view class="participants g-flex g-flex-i-center" wx:if="{{ appInfo != '' }}">
+          <view class="imgBox" wx:if="{{ appInfo.photos.length > 0 }}">
+            <image class="img g-radius-half img{{ index + 1 }}" src="{{ item ? item : defaultImg }}" wx:for="{{ appInfo.photos }}" wx:key="index"></image>
+          </view>
+          <view class="num g-font-size24 g-c-666">{{turnRmbFun.api(appInfo.totalMember)}}人参与 | {{turnRmbFun.api(appInfo.totalCount)}}次打卡</view>
+        </view>
+        <view class="allTime g-font-size28">{{ appInfo.beginTime }}-{{ appInfo.endTime }}（共{{ appInfo.days }}天）</view>
+      </view>
+    </view>
+    <!-- 排行榜 end -->
+    <!-- 周目标 -->
+    <!-- 未授权 -->
+    <view class="g-radius14 g-bg-white cshadow weeklyGoal" wx:if="{{ !uerIsRegister }}">
+      <view class="box box1">
+        <view class="title g-flex g-flex-i-center">
+          <view class="item1"></view>
+          <view class="item2 g-font-500 g-font-size32">周目标</view>
+        </view>
+        <view class="cont g-c-999">
+          <view class="txt g-font-size28 g-c-999">您暂未参与打卡，无法展示您的目标图～</view>
+          <view class="txt g-font-size28 g-c-999 other">参与打卡，即可展示</view>
+          <!-- <view class="txt g-font-size24 g-c-999 tr">01/04 - 01/10</view> -->
+        </view>
+      </view>
+    </view>
+    <!-- 已授权 -->
+    <view class="g-radius14 g-bg-white cshadow weeklyGoal" wx:if="{{ uerIsRegister }}">
+      <view class="box box2" wx:if="{{ weekTargetInfo != '' }}">
+        <view class="title g-font-500 g-flex g-flex-i-center">
+          <view class="item1"></view>
+          <view class="item2 g-flex-grow1">周目标</view>
+          <button class="item3 g-pointer g-font-500 g-radius43 tc g-btn g-font-size28" bindtap="linkTargetWeightFun" data-target="{{ weekTargetInfo.targetWeight }}">编辑目标</button>
+        </view>
+        <view class="g-c-999 g-font-size28">{{ weekTargetInfo.weekTarget }}</view>
+        <view class="cont g-flex g-flex-i-center" wx:if="{{ weekTargetInfo != '' }}">
+          <view class="item tc" wx:for="{{ weekTargetInfo.weekClock }}" wx:key="index">
+            <view class="num g-radius-half g-of-hide" wx:if="{{ item.weight == 0 }}"><text class="txt">-</text></view>
+            <view class="num g-radius-half g-of-hide g-c-white active" wx:elif="{{ item.weight > 0 && item.weight.length > 5 }}"><text class="txt1">{{ item.weight }}</text></view>
+            <view class="num g-radius-half g-of-hide g-c-white active" wx:else><text class="txt1">{{ item.weight }}</text><text class="txt2">kg</text></view>
+            <view class="week g-font-size28 g-c-999">{{ item.week }}</view>
+          </view>
+        </view>
+        <view class="reportForm g-flex g-flex-i-center g-pointer" bindtap="linkReportWFun">
+          <view class="item1 g-font-size28">体重数据周报</view>
+          <view class="item2 g-radius-half"></view>
+          <view class="item3 tr g-font-size24 g-flex-grow1">{{ weekTargetInfo.beginTime }} - {{ weekTargetInfo.endTime }}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 周目标 end -->
+    <!-- 今日步数 -->
+    <view class="g-radius14 g-bg-white cshadow steps" wx:if="{{ uerIsRegister }}">
+      <!-- 未授权 步数 -->
+      <view class="box box1" wx:if="{{ wechatStepsInfo.isRegister == false }}">
+        <view class="title g-flex g-flex-i-center">
+          <view class="item1"></view>
+          <view class="item2 g-flex-grow1 g-font-500 g-font-size32">今日步数</view>
+          <button class="item3 g-pointer g-font-500 g-radius43 tc g-btn g-font-size28" bindtap="getWxRunDataFun">同步数据</button>
+        </view>
+        <view class="tip g-font-size28 g-c-999">暂未授权，无法获取您的步数</view>
+      </view>
+      <!-- 已授权 步数 -->
+      <view class="box box2" wx:else>
+        <view class="title g-flex g-flex-c-between">
+          <view class="item-left g-flex-grow1">
+            <view class="div1 g-flex g-flex-i-center">
+              <view class="item1"></view>
+              <view class="item2 g-flex-grow1 g-font-500 g-font-size32">今日步数</view>
+            </view>
+            <view class="div2"><text class="txt1 g-font-size48 g-font-500">{{turnRmbFun.api(wechatStepsInfo.todaySteps)}}</text><text class="txt2 g-c-aaa g-font-size24">/{{turnRmbFun.api(10000)}}步</text></view>
+          </view>
+          <!-- <view class="item-right g-flex g-flex-i-center g-flex-c-center">
+            <circle id='annular' bg='annular_bg' draw='annular_draw' bind:runEvent="_runEvent" >
+              <view class="circle_info po g-w-full g-flex g-flex-c-center g-flex-i-center g-flex-d-column tc">
+                <view class="txt2  g-flex-grow1 g-font-size32 g-font-500">{{turnRmbFun.api(wechatStepsInfo.todaySteps)}}</view>
+              </view>
+            </circle>
+          </view> -->
+        </view>
+        <view class="reportForm g-flex g-flex-i-center g-pointer" bindtap="linkReportSFun">
+          <view class="item1 g-font-size28">步数数据月报</view>
+          <view class="item2 g-radius-half"></view>
+          <view class="item3 tr g-c-999 g-font-size24 g-flex-grow1">{{ wechatStepsInfo.beginTime }} - {{ wechatStepsInfo.endTime }}</view>
+        </view>
+      </view>
+      <!--  -->
+    </view>
+    <!-- 今日步数 end -->
+    <!-- 更多功能 -->
+    <view class="g-radius14 g-bg-white cshadow features">
+      <view class="box">
+        <view class="title g-flex g-flex-i-center">
+          <view class="item1"></view>
+          <view class="item2 g-font-500 g-font-size32">更多功能</view>
+        </view>
+        <view class="nav g-flex g-flex-wrap g-font-size28 g-pointer" wx:if="{{ !uerIsRegister }}">
+          <button class="item tc item1"  open-type="getUserInfo" lang="zh_CN" data-type="clock" bindtap="updateTypeFun" bindgetuserinfo="queryUpdateInfo">每日打卡</button>
+          <button class="item tc item2"  open-type="getUserInfo" lang="zh_CN" data-type="rangking" bindtap="updateTypeFun" bindgetuserinfo="queryUpdateInfo">排行榜</button>
+          <button class="item tc item3"  open-type="getUserInfo" lang="zh_CN" data-type="shareToday" bindtap="updateTypeFun" bindgetuserinfo="queryUpdateInfo">分享日签</button>
+          <button class="item tc item4"  open-type="getUserInfo" lang="zh_CN" data-type="shareFriend" bindtap="updateTypeFun" bindgetuserinfo="queryUpdateInfo">邀请好友</button>
+        </view>
+        <view class="nav g-flex g-flex-wrap g-font-size28 g-pointer" wx:if="{{ uerIsRegister }}">
+          <view class="item tc item1" bindtap="linkClockFun">每日打卡</view>
+          <view class="item tc item2" bindtap="linkRankingFun">排行榜</view>
+          <view class="item tc item3" bindtap="showTodayCanvasFun">分享日签</view>
+          <view class="item tc item4" bindtap="showFriendsCanvasFun">邀请好友</view>
+        </view>
+      </view>
+    </view>
+    <!-- 更多功能 end -->
+    <!-- 精选推荐 -->
+    <view class="g-radius14 g-bg-white cshadow recommend">
+      <view class="box">
+        <view class="title g-flex g-flex-i-center">
+          <view class="item1"></view>
+          <view class="item2 g-font-500 g-font-size32 g-flex-grow1">精选推荐</view>
+          <view class="item3 tr g-c-999 g-pointer g-font-size28" bindtap="linkCaseFun">更多</view>
+        </view>
+        <view class="ul" wx:if="{{ articleInfo != '' }}">
+          <view class="li g-pointer g-flex" wx:for="{{ articleInfo }}" wx:key="index" data-url="{{ item.caseUrl }}" bindtap="linkCaseViewFun">
+            <view class="item-benner">
+              <image src="{{ item.corporateLogo }}" class="g-wh-full g-radius14"></image>
+            </view>
+            <view class="item-cont g-font-size28 g-flex-grow1">{{ item.caseName }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 精选推荐 end -->
+    <gfooter></gfooter>
+    <!--  -->
+  </view>
+</view>
+
+<!-- 分享日签 海报图 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ todayCanvas.layerHide }}" catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-canvasClock {{ !todayCanvas.layerHide ? 'active' : '' }}" catchtouchmove="true">
+  <view class="box">
+    <view class="header"><image src="{{ todayCanvas.banner }}" class="g-wh-full"></image></view>
+    <view class="footer g-flex g-flex-c-around">
+      <view class="item g-radius44 g-c-white g-font-500 item1 g-flex g-flex-i-center g-flex-c-center" bindtap="saveTodayCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">保存到相册</view>
+      </view>
+      <view class="item g-radius44 g-c-white g-font-500 item2 g-flex g-flex-i-center g-flex-c-center" bindtap="saveTodayCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">分享海报</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 分享日签 海报图 画板 -->
+<view hidden="{{ todayCanvas.canvasHide }}"><canvas canvas-id="todayCanvas" style="width: {{ todayCanvas.width }}px; height: {{ todayCanvas.height }}px;"/></view>
+
+
+<!-- 邀请好友 海报图 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ friendsCanvas.layerHide }}" catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-canvasClock {{ !friendsCanvas.layerHide ? 'active' : '' }}" catchtouchmove="true">
+  <view class="box">
+    <view class="header"><image src="{{ friendsCanvas.banner }}" class="g-wh-full"></image></view>
+    <view class="footer g-flex g-flex-c-around">
+      <view class="item g-radius44 g-c-white g-font-500 item1 g-flex g-flex-i-center g-flex-c-center" bindtap="saveFriendsCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">保存到相册</view>
+      </view>
+      <view class="item g-radius44 g-c-white g-font-500 item2 g-flex g-flex-i-center g-flex-c-center" bindtap="saveFriendsCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">分享海报</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 邀请好友 海报图 画板 -->
+<view hidden="{{ friendsCanvas.canvasHide }}"><canvas canvas-id="friendsCanvas" style="width: {{ friendsCanvas.width }}px; height: {{ friendsCanvas.height }}px;"/></view>

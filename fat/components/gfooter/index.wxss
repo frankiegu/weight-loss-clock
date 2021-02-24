@@ -1,0 +1,13 @@
+/* components/gfooter/index.wxss */
+/* 公用底部 */
+page{ color: #333333; }
+.g-flex { display: -webkit-box; display: flex; display: -ms-flex; display: -webkit-flex; }
+.g-flex-c-center{ justify-content: center; }
+.tc { text-align: center; }
+.g-c-aaa{ color: #AAAAAA; }
+.g-font-size28{ font-size: 28rpx; line-height: 40rpx; }
+.g-radius10{ border-radius: 10rpx; }
+
+.g-footer{ padding: 50rpx 0; }
+.g-footer .appreciate .item{ margin-bottom: 24rpx; padding: 24rpx 32rpx; box-shadow: 0 0 16rpx 0 rgba(237, 237, 237, 0.5); }
+.g-footer .appreciate .item{ background: linear-gradient(180deg, #565656 0%, #010101 100%); color: #ffffff; }

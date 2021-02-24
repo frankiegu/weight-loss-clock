@@ -1,0 +1,140 @@
+page { width: 100%; height: 100%; font-family: 'alibaba'; color: #333; }
+
+/* 默认 */
+page button{ min-height: initial; padding: 0; line-height: initial; font-weight: initial; font-size: initial; border-radius: initial; background: initial; text-align: initial; }
+page button::after{ border: none; }
+page .button-hover{ width: 1rpx; height: 1rpx; background: transparent; }
+page input,page textarea{ color: #333; height: initial; min-height: initial; width: initial; }
+page .g-placeholder{ color: #CCCCCC; font-size: 28rpx; }
+::-webkit-scrollbar {  width: 0;  height: 0; color: transparent;}
+
+/* 基础 */
+.tc { text-align: center; }
+.tr { text-align: right; }
+.tl { text-align: left; }
+.pf { position: fixed; }
+.pr { position: relative; }
+.po { position: absolute; }
+.g-pointer { cursor: pointer; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+.g-of-ellipsis{ display:block; text-overflow:ellipsis; -o-text-overflow:ellipsis; -webkit-text-overflow:ellipsis; -moz-text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.g-of-ellipsis2{ text-overflow: -o-ellipsis-lastline; overflow: hidden;text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 2;line-clamp: 2;-webkit-box-orient: vertical;}
+.g-of-hide{ overflow: hidden; }
+
+/* flex */
+.g-flex { display: -webkit-box; display: flex; display: -ms-flex; display: -webkit-flex; }
+.g-flex-grow1 { flex-grow: 1; flex-basis: 0; -webkit-flex-basis: 0; }
+.g-flex-grow2 { flex-grow: 2; flex-basis: 0; -webkit-flex-basis: 0; }
+.g-flex-d-row{ flex-direction: row; } /* 默认值。 flex项目水平显示为一行 */
+.g-flex-d-row-reverse{ flex-direction: row-reverse; } /* 与行相同，但顺序相反 */
+.g-flex-d-column{ flex-direction: column; } /* 灵活flex项目作为列垂直显示 */
+.g-flex-d-column-reverse{ flex-direction: column; } /* 与列相同，但顺序相反 */
+.g-flex-d-column-initial{ flex-direction: initial; } /* 将此属性设置为其默认值 */
+.g-flex-d-column-inherit{ flex-direction: column; } /* 从其父元素继承此属性 */
+.g-flex-i-center{ align-items: center; }
+.g-flex-i-start{ align-items: flex-start; }
+.g-flex-i-end{ align-items: flex-end; }
+.g-flex-c-around{ justify-content: space-around; }
+.g-flex-c-between{ justify-content: space-between; }
+.g-flex-c-center{ justify-content: center; }
+.g-flex-c-end{ justify-content: flex-end; }
+.g-flex-wrap{ flex-wrap: wrap; }
+.g-flex-nowrap{ flex-wrap: nowrap; }
+
+/* 宽高 */
+.g-w-full{ width: 100%; }
+.g-h-full{ height: 100%; }
+.g-wh-full{ width: 100%; height: 100%; }
+
+/* 层级 */
+.z-index1{ z-index: 1; }
+.z-index9{ z-index: 9; }
+.z-index99{ z-index: 99; }
+.z-index999{ z-index: 999; }
+.z-index10000{ z-index: 10000; }
+.z-index10001{ z-index: 10001; }
+
+/* 圆角 */
+.g-radius2{ border-radius: 2rpx; }
+.g-radius4{ border-radius: 4rpx; }
+.g-radius6{ border-radius: 6rpx; }
+.g-radius8{ border-radius: 8rpx; }
+.g-radius10{ border-radius: 10rpx; }
+.g-radius12{ border-radius: 12rpx; }
+.g-radius14{ border-radius: 14rpx; }
+.g-radius16{ border-radius: 16rpx; }
+.g-radius18{ border-radius: 18rpx; }
+.g-radius20{ border-radius: 20rpx; }
+.g-radius22{ border-radius: 22rpx; }
+.g-radius24{ border-radius: 24rpx; }
+.g-radius26{ border-radius: 26rpx; }
+.g-radius28{ border-radius: 28rpx; }
+.g-radius30{ border-radius: 30rpx; }
+.g-radius32{ border-radius: 32rpx; }
+.g-radius34{ border-radius: 34rpx; }
+.g-radius35{ border-radius: 34rpx; }
+.g-radius36{ border-radius: 36rpx; }
+.g-radius38{ border-radius: 38rpx; }
+.g-radius40{ border-radius: 40rpx; }
+.g-radius42{ border-radius: 42rpx; }
+.g-radius43{ border-radius: 43rpx; }
+.g-radius44{ border-radius: 44rpx; }
+.g-radius-half{ border-radius: 50%; }
+
+/* 表单、按钮等 */
+.g-btn{ color: #ffffff; background: linear-gradient(270deg, #6CE2D2 0%, #3BB19B 100%); box-shadow: 0 0 20rpx 2rpx rgba(93, 211, 193, 0.49); }
+
+/* 色值 */
+.g-c-aaa{ color: #AAAAAA; }
+.g-c-666{ color: #666666; }
+.g-c-777{ color: #777777; }
+.g-c-999{ color: #999999; }
+.g-c-white{ color: #ffffff; }
+.g-bg-white{ background: #ffffff; }
+
+
+/* 透明度 */
+.g-opacity0{ opacity: 0; filter: alpha(opacity=0); }
+.g-opacity100{ opacity: 1; filter: alpha(opacity=100); }
+
+/* 字体加粗 */
+.g-font-500{ font-family: 'alibaba-medium'; font-weight: 500; }
+.g-font-blod{ font-family: 'alibaba-blod'; font-weight: 600; }
+.g-font-size20{ font-size: 20rpx; line-height: 28rpx; }
+.g-font-size24{ font-size: 24rpx; line-height: 34rpx; }
+.g-font-size28{ font-size: 28rpx; line-height: 40rpx; }
+.g-font-size32{ font-size: 32rpx; line-height: 44rpx; }
+.g-font-size36{ font-size: 36rpx; line-height: 50rpx; }
+.g-font-size44{ font-size: 44rpx; line-height: 60rpx; }
+.g-font-size48{ font-size: 48rpx; line-height: 66rpx; }
+.g-font-size52{ font-size: 52rpx; line-height: 70rpx; }
+.g-font-size56{ font-size: 56rpx; line-height: 76rpx; }
+.g-font-size60{ font-size: 60rpx; line-height: 84rpx; }
+.g-font-size64{ font-size: 64rpx; line-height: 88rpx; }
+.g-font-size72{ font-size: 72rpx; line-height: 100rpx; }
+.g-font-size76{ font-size: 76rpx; line-height: 104rpx; }
+
+/* 弹窗 */
+.g-layer-shadow{ background: rgba(0,0,0,0.56); top: 0; left: 0; bottom: 0; right: 0; }
+.g-layer-bottom{ bottom: 0; right: 0; left: 0; transform: translateY(120%); -webkit-transform: translateY(120%); opacity: 0; transition: all 0.4s; -webkit-transition: all 0.4s; }
+.g-layer-bottom.active{ transform: translateY(0%); -webkit-transform: translateY(0%); opacity: 1; }
+.g-layer-center{ top: 50%; left: 50%; transform: scale(0, 0) translate(-50%, -50%); transform-origin: 0 0 0; opacity: 0; transition: all 0.3s; -webkit-transition: all 0.3s; }
+.g-layer-center.active{ transform: scale(1, 1) translate(-50%, -50%); opacity: 1; }
+.g-layer-right{ top: 0; right: 0; bottom: 0; transform: translateX(100%); -webkit-transform: translateX(100%); transition: all 0.3s; -webkit-transition: all 0.3s; }
+.g-layer-right.active{ transform: translateX(0); -webkit-transform: translateX(0); }
+
+
+.g-default-nodata{ padding-top: 150rpx; }
+.g-default-nodata .icon{ height: 156rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/defaul_nodata.png") no-repeat center/194rpx auto; }
+.g-default-nodata .tip{ margin: 24rpx 0 32rpx; font-size: 28rpx; line-height: 40rpx; color: #999999; }
+.g-default-nodata .btn{ justify-content: center; }
+.g-default-nodata .btn .item{ flex: 0 0 228rpx; border-radius: 43rpx; font-size: 32rpx; height: 72rpx; line-height: 72rpx; background: linear-gradient(270deg, #565656 0%, #010101 100%); }
+
+/* 公用标题 */
+.g-title .item1{ flex: 0 0 10rpx; height: 36rpx; border-radius: 5rpx; background: linear-gradient(180deg, #6CE2D2 0%, #3BB19B 100%); }
+.g-title .item2{ margin: 0 14rpx; }
+.g-title .item3.arrow{ padding-right: 26rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210125_3.png") no-repeat right center/26rpx auto; }
+
+
+/* 主题 */
+@import '/base/v1.wxss';
+@import '/base/v1_layer.wxss';/

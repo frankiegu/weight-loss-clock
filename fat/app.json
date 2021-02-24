@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/v1-index/index",
+    "pages/v1-report-weight/index",
+    "pages/v1-report-steps/index",
+    "pages/v1-reward/index",
+    "pages/v1-clock/index",
+    "pages/v1-rangking/index",
+    "pages/v1-history/index",
+    "pages/v1-case/index",
+    "pages/v1-case-view/index",
+    "pages/v1-target-weight/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F2F2F2",
+    "navigationBarTitleText": "减脂打卡+",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

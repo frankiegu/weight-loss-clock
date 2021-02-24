@@ -1,0 +1,50 @@
+<!--pages/v1-reward/index.wxml-->
+<wxs module="turnRmbFun" src="../../base/turnRmb.wxs"></wxs>
+
+<gStatusbar type="1" title="" theme="default"></gStatusbar>
+<view class="reward-old-wrap">
+  <view class="wrap">
+    <!--  -->
+    <view class="header">
+      <view class="box">
+        <view class="title"></view>
+        <view class="subTitle"></view>
+        <view class="nav g-flex g-flex-wrap g-flex-i-center">
+          <view class="item g-radius20 g-of-hide" wx:for="{{ rateArr }}" data-num="item"><image class="g-wh-full" src="{{ defaultImgUrl }}20210131_2{{ index }}.png"></image></view>
+        </view>
+        <view class="tip"></view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="section">
+      <view class="box">
+        <view class="ul">
+          <view class="li g-flex g-flex-c-start" wx:for="{{ 2 }}">
+            <view class="txt g-font-500">{{ index == 0 ? '发起人' : '参与人' }}</view>
+            <image src="{{ defaultImg }}" class="g-radius-half img"></image>
+            <view class="cont g-flex-grow1 g-radius8 g-c-white mgL">我喜欢这个世界是因为这个世界有你,我喜欢这个世界是因为这个世界有你~</view>
+          </view>
+          <view class="li g-flex g-flex-c-start">
+            <view class="blank"></view>
+            <view class="cont g-flex-grow1 g-radius8 g-c-white mgR">我喜欢这个世界是因为这个世界有你,我喜欢这个世界是因为这个世界有你~</view>
+            <image src="{{ defaultImg }}" class="g-radius-half img"></image>
+          </view>
+          <view class="li g-flex g-flex-c-start">
+            <image src="{{ defaultImg }}" class="g-radius-half img"></image>
+            <view class="cont g-flex-grow1 g-radius8 g-c-white mgL">我喜欢这个世界是因为这个世界有你,我喜欢这个世界是因为这个世界有你~</view>
+            <view class="blank"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="footer">
+      <view class="box">
+        <view class="title tc g-font-size32 g-font-blod">已有{{turnRmbFun.api(88888)}}人对参与者进行打赏</view>
+        <view class="ul g-flex g-flex-wrap g-flex-i-center"><image src="{{ defaultImg }}" wx:for="{{ 50 }}" class="item g-radius4"></image></view>
+        <view class="more g-flex g-flex-c-center g-flex-i-center"><view class="g-pointer item g-c-white g-font-size28">加载更多</view></view>
+      </view>
+    </view>
+    <!--  -->
+  </view>
+</view>

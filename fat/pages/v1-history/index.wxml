@@ -1,0 +1,89 @@
+<gStatusbar type="1" title="" theme="{{ theme }}"></gStatusbar>
+
+<view class="historyWrap">
+  <view class="wrap" wx:if="{{ historyInfo != '' }}">
+    <!--  -->
+    <view class="header">
+      <view class="box">
+        <view class="title g-font-size32 g-c-white">您已加入减脂打卡大家庭<text class="g-font-500 g-font-size56"> {{ historyInfo.days }} </text>天了！</view>
+        <view class="subTitle g-flex g-font-size28"><view class="item">{{ subTitle }}</view></view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="section g-bg-white">
+      <view class="box">
+        <view class="g-default-nodata" wx:if="{{ historyInfo == '' || historyInfo.clockList.length == 0 }}">
+          <view class="icon"></view>
+          <view class="tip tc">暂无打卡记录</view>
+          <view class="btn g-flex"><view class="item tc g-c-white g-pointer" bindtap="linkClockFun">去打卡</view></view>
+        </view>
+        <view class="ul pr" wx:else>
+          <view class="li" wx:for="{{ historyInfo.clockList }}" wx:key="">
+            <!-- 日期 -->
+            <view class="date g-flex g-flex-i-center pr">
+              <view class="item-week">
+                <view class="p1 g-font-size36">{{ item.weekCN }}</view>
+                <view class="p2 g-font-size24 g-c-999">{{ item.weekEN }}</view>
+              </view>
+              <view class="item-circle pr"></view>
+              <view class="item-time g-font-size32">{{ item.createTime }}</view>
+              <view class="item-weight g-font-500"><text class="txt1 g-font-size52">{{ item.weight }}</text><text class="txt2 g-font-size28">kg</text></view>
+            </view>
+            <view class="cont">
+              <!--  -->
+              <view class="food pr g-flex g-flex-i-center food1" wx:if="{{ item.breakfast != '' }}">
+                <view class="item-circle"></view>
+                <view class="item-icon"></view>
+                <view class="item-cont g-font-size28"><text class="txt1">早餐：</text><text class="txt2 g-c-999 g-font-size28">{{ item.breakfast }}</text></view>
+              </view>
+              <!--  -->
+              <view class="food pr g-flex g-flex-i-center food2" wx:if="{{ item.lunch != '' }}">
+                <view class="item-circle"></view>
+                <view class="item-icon"></view>
+                <view class="item-cont g-font-size28"><text class="txt1">午餐：</text><text class="txt2 g-c-999 g-font-size28">{{ item.lunch }}</text></view>
+              </view>
+              <!--  -->
+              <view class="food pr g-flex g-flex-i-center food3" wx:if="{{ item.dinner != '' }}">
+                <view class="item-circle"></view>
+                <view class="item-icon"></view>
+                <view class="item-cont g-font-size28"><text class="txt1">晚餐：</text><text class="txt2 g-c-999 g-font-size28">{{ item.dinner }}</text></view>
+              </view>
+              <!--  -->
+              <view class="food pr g-flex g-flex-i-center food4" wx:if="{{ item.snack != '' }}">
+                <view class="item-circle"></view>
+                <view class="item-icon"></view>
+                <view class="item-cont g-font-size28"><text class="txt1">加餐：</text><text class="txt2 g-c-999 g-font-size28">{{ item.snack }}</text></view>
+              </view>
+              <!--  -->
+              <view class="food pr g-flex g-flex-i-center food5" wx:if="{{ item.sports != '' }}">
+                <view class="item-circle"></view>
+                <view class="item-icon"></view>
+                <view class="item-cont g-font-size28"><text class="txt1">运动：</text><text class="txt2 g-c-999 g-font-size28">{{ item.sports }}</text></view>
+              </view>
+              <!--  -->
+            </view>
+            <!--  -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+  </view>
+</view>
+
+<!-- 选择分享方式 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ !shareTypeLayerShow }}" bindtap="closeshareTypeLayerFun"
+  catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-shareType {{ shareTypeLayerShow ? 'active' : '' }}"
+  catchtouchmove="true">
+  <view class="box pr g-radius16 g-bg-white tc">
+    <view class="title g-font-500 g-font-size36">选择分享方式</view>
+    <view class="nav g-flex g-flex-i-center g-flex-c-around">
+      <button class="item g-font-size28 item1">分享给朋友</button>
+      <button class="item g-font-size28 item2">分享到朋友圈</button>
+    </view>
+  </view>
+  <view class="close g-flex g-flex-c-center">
+    <view class="item g-pointer"></view>
+  </view>
+</view>

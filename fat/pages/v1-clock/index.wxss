@@ -1,0 +1,2 @@
+/* pages/v1-clock/index.wxss */
+page{ background: #F7F7F7 url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/2021022_18.jpg") no-repeat center top/100% auto; }

@@ -1,0 +1,17 @@
+<view class="g-status-bar pf {{ theme }}" style="height:{{shijiNav.allHeight}}px;">
+  <view class="wrap">
+    <view class="cont" style="padding-left: 10px; padding-top:{{shijiNav.signalHeight}}px; padding-right:{{shijiNav.capsuleWidth + 10}}px;">
+      <view class="box g-flex g-of-hide"  style="height: {{shijiNav.capsuleHeight}}px;">
+        <!-- 返回 -->
+        <view class="item1 g-pointer {{ type == 1 ? 'type1' : type == 2 ? 'type2' : type == 3 ? 'type3' : '' }}" wx:if="{{ type != 4 }}">
+          <view class="menu g-flex">
+            <view class="item-back"  bindtap='_navback' wx:if='{{ type != 2 && shijiShowBack == false }}'></view>
+            <view class="item-index" bindtap='_navindex' wx:if='{{ type != 1 }}'></view>
+          </view>
+        </view>
+        <!-- 标题 -->
+        <view class="item2 g-flex-grow1 g-of-ellipsis g-font-500" wx:if="{{ title && title != '' }}">{{title}}</view>
+      </view>
+    </view>
+  </view>
+</view>

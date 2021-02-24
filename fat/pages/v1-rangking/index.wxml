@@ -1,0 +1,147 @@
+<!--pages/v1-rangking/index.wxml-->
+<wxs module="turnRmbFun" src="../../base/turnRmb.wxs"></wxs>
+
+<gStatusbar type="1" title=""  theme="{{ theme }}"></gStatusbar>
+<view class="rankingWrap" wx:if="{{ rankFriendsInfo != '' || rankAllInfo != '' }}">
+  <view class="wrap">
+    <!-- 导航 -->
+    <view class="nav g-flex g-flex-c-center g-flex-i-center">
+      <view class="box g-flex g-flex-c-center g-flex-i-center g-pointer g-font-500 g-radius43 g-of-hide">
+        <view class="item tc g-flex-grow1 {{ navActive == 1 ? 'active g-font-size32 g-bg-white g-radius43' : 'g-c-white' }}"
+          data-num="1" bindtap="changeNavFun">总榜</view>
+        <view class="item tc g-flex-grow1 {{ navActive == 2 ? 'active g-font-size32 g-bg-white g-radius43' : 'g-c-white' }}" data-num="2"
+          bindtap="changeNavFun">好友榜</view>
+      </view>
+    </view>
+    <!-- end -->
+    <!-- 总榜 内容区域 -->
+    <view class="wrap1" wx:if="{{ navActive == 1 && rankAllInfo != '' }}">
+      <!-- 前三名 -->
+      <!-- 用户昵称 大于 4个中文字符 显示小一点的字 -->
+      <view class="header" wx:if="{{ rankAllInfo != '' && rankAllInfo.topThree.length != 0 }}">
+        <view class="box g-flex g-flex-i-end g-flex-c-between tc">
+          <view class="item{{ index + 1 }} pr g-radius16" wx:for="{{ rankAllInfo.topThree }}">
+            <view class="po img g-g-flex g-flex-i-center">
+              <image src="{{ item.photo != '' ? item.photo : defaultImg }}" class="g-radius-half"></image>
+            </view>
+            <view class="name g-flex g-flex-i-center g-font-500 g-radius43 g-of-hide">
+              <view class="txt1 g-radius43 g-of-hide g-c-white">{{ item.ranking }}</view>
+              <view class="txt2 {{ item.nickNameLength > 8 ? small : ''}}">{{ item.nickName }}</view>
+            </view>
+            <view class="days"><text class="txt1 g-font-size32 g-font-500">{{turnRmbFun.api(item.clockDays)}}</text><text
+                class="txt2 g-c-999 g-font-size20">(天)</text></view>
+          </view>
+        </view>
+      </view>
+      <!--  -->
+      <view class="section g-radius24 g-bg-white">
+        <view class="box">
+          <!-- 个人成绩 -->
+          <view class="mine g-flex g-flex-i-center g-c-white g-font-size28 g-radius24">
+            <view class="item1 g-radius-half g-of-hide">
+              <image src="{{ rankAllInfo.photo != '' ? rankAllInfo.photo : defaultImg }}" class="g-radius-half g-wh-full"></image>
+            </view>
+            <view class="item2">{{ rankAllInfo.nickName }}</view>
+            <view class="item3 tc">
+              <view class="txt1">累计打卡</view>
+              <view class="txt2"><text class="g-font-500">{{ rankAllInfo.clockDays }}</text>天</view>
+            </view>
+            <view class="item4 tr">第<text class="g-font-500">{{turnRmbFun.api(rankAllInfo.ranking)}}</text>名</view>
+          </view>
+          <!-- 排行 -->
+          <view class="g-default-nodata" wx:if="{{ rankAllInfo == '' || rankAllInfo.topList.length == 0 }}">
+            <view class="icon"></view>
+            <view class="tip tc">暂无排行~</view>
+          </view>
+          <view class="ul" wx:else>
+            <view class="title g-flex g-flex-i-center g-c-999 g-font-size28">
+              <view class="item1">排名</view>
+              <view class="item2 g-flex-grow1">姓名</view>
+              <view class="item3 tr">累计(天)</view>
+            </view>
+            <view class="li g-flex g-flex-i-center li{{ index < 3 ? index + 1 : '' }} {{ item.isCurrent ? 'my' : '' }}" wx:for="{{ rankAllInfo.topList }}"
+              wx:key="">
+              <view class="item1 tc">{{ item.ranking < 4 ? '' : item.ranking }}</view>
+              <image src="{{ item.photo != '' ? item.photo : defaultImg }}" class="item2 g-radius-half g-of-hide"></image>
+              <view class="item3 g-flex-grow1 g-font-size28">{{ item.nickName }}</view>
+              <view class="item4 tr g-font-size32">{{turnRmbFun.api(item.clockDays)}}</view>
+            </view>
+          </view>
+          <!--  -->
+        </view>
+      </view>
+      <!--  -->
+    </view>
+    <!-- 总榜 内容区域 end -->
+    <!-- 好友榜 内容区域 -->
+    <view class="wrap2" wx:if="{{ navActive == 2 && rankFriendsInfo != '' }}">
+      <view class="box">
+        <view class="section g-radius24 g-bg-white">
+          <view class="box">
+            <!-- 个人成绩 -->
+            <view class="mine g-flex g-flex-i-center g-c-white g-font-size28 g-radius24">
+              <view class="item1 g-radius-half g-of-hide">
+                <image src="{{ rankFriendsInfo.photo != '' ? rankFriendsInfo.photo : defaultImg }}" class="g-radius-half g-wh-full"></image>
+              </view>
+              <view class="item2">{{ rankFriendsInfo.nickName }}</view>
+              <view class="item3 tc">
+                <view class="txt1">累计打卡</view>
+                <view class="txt2"><text class="g-font-500">{{ rankFriendsInfo.clockDays }}</text>天</view>
+              </view>
+              <view class="item4 tr">第<text class="g-font-500">{{turnRmbFun.api(rankFriendsInfo.ranking)}}</text>名</view>
+            </view>
+            <!-- 邀请好友一起打卡 -->
+            <view class="invitation g-pointer g-radius24" bindtap="showFriendsCanvasFun"></view>
+            <!-- 排行 -->
+            <view class="g-default-nodata" wx:if="{{ rankFriendsInfo == '' || rankFriendsInfo.topList.length == 0 }}">
+              <view class="icon"></view>
+              <view class="tip tc">暂无好友数据~</view>
+            </view>
+            <!-- 排行 -->
+            <view class="ul" wx:else>
+              <view class="title g-flex g-flex-i-center g-c-999 g-font-size28">
+                <view class="item1">排名</view>
+                <view class="item2 g-flex-grow1">姓名</view>
+                <view class="item3 tr">累计(天)</view>
+              </view>
+              <view class="li g-flex g-flex-i-center li{{ index < 3 ? index + 1 : '' }} {{ item.isCurrent ? 'my' : '' }}" wx:for="{{ rankFriendsInfo.topList }}"
+                wx:key="">
+                <view class="item1 tc">{{ index < 3 ? '' : index }}</view>
+                <image src="{{ item.photo != '' ? item.photo : defaultImg }}" class="item2 g-radius-half g-of-hide"></image>
+                <view class="item3 g-flex-grow1 g-font-size28">{{ item.nickName }}</view>
+                <view class="item4 tr g-font-size32">{{turnRmbFun.api(item.clockDays)}}</view>
+              </view>
+            </view>
+            <!--  -->
+          </view>
+        </view>
+      </view>
+      <!--  -->
+    </view>
+    <!-- 好友榜 内容区域 end -->
+    <!--  -->
+  </view>
+  <!-- 精选推荐 end -->
+  <gfooter></gfooter>
+  <!--  -->
+</view>
+
+<!-- 邀请好友 海报图 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ friendsCanvas.layerHide }}" catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-canvasClock {{ !friendsCanvas.layerHide ? 'active' : '' }}" catchtouchmove="true">
+  <view class="box">
+    <view class="header"><image src="{{ friendsCanvas.banner }}" class="g-wh-full"></image></view>
+    <view class="footer g-flex g-flex-c-around">
+      <view class="item g-radius44 g-c-white g-font-500 item1 g-flex g-flex-i-center g-flex-c-center" bindtap="saveFriendsCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">保存到相册</view>
+      </view>
+      <view class="item g-radius44 g-c-white g-font-500 item2 g-flex g-flex-i-center g-flex-c-center" bindtap="saveFriendsCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">分享海报</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 邀请好友 海报图 画板 -->
+<view hidden="{{ friendsCanvas.canvasHide }}"><canvas canvas-id="friendsCanvas" style="width: {{ friendsCanvas.width }}px; height: {{ friendsCanvas.height }}px;"/></view>

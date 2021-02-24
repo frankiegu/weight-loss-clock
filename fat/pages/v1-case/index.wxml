@@ -1,0 +1,17 @@
+<view class="caseWrap">
+  <view class="wrap">
+    <view class="title g-font-500 g-font-size40">精选推荐</view>
+    <view class="g-default-nodata" wx:if="{{ articleInfo.length == 0 }}">
+      <view class="icon"></view>
+      <view class="tip tc">暂无推荐文章</view>
+    </view>
+    <view class="ul" wx:else>
+      <view class="li g-pointer g-flex" wx:for="{{ articleInfo }}" wx:key="index" data-url="{{ item.caseUrl }}" bindtap="linkCaseViewFun">
+        <view class="item-benner">
+          <image src="{{ item.corporateLogo }}" class="g-wh-full g-radius14"></image>
+        </view>
+        <view class="item-cont g-font-size28 g-flex-grow1">{{ item.caseName }}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+/* pages/v1-report-steps/index.wxss */
+page {
+  background: linear-gradient(180deg, #010101,#565656) no-repeat;
+  background-repeat: no-repeat;
+  background-size: 100% 726rpx;
+  /* background-position: top center; 可不加 */
+}

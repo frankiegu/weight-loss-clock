@@ -1,0 +1,8 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gfooter": "/components/gfooter/index",
+    "gStatusbar": "/components/statusbar/index"
+  }
+}

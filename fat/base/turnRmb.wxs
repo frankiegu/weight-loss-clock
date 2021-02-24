@@ -1,0 +1,27 @@
+var threeNum = function (num) { 
+  var thisNum = (num || 0).toString().split('.');
+  var num = thisNum[0]; 
+  var fuNum = thisNum[0]; 
+  var result = ''; 
+  if (fuNum < 0) {
+    num = num.slice(1); 
+  }
+  while (num.length > 3) { 
+    result = ',' + num.slice(-3) + result;
+    num = num.slice(0, num.length - 3);
+  }
+  if (num) {
+    result = num + result;
+  }
+  if (fuNum < 0) {
+    result = '-' + result
+  } 
+  if (thisNum[1]) {
+    result = result + '.' + thisNum[1];
+  } 
+  return result;
+}
+
+module.exports = {
+  api : threeNum
+}

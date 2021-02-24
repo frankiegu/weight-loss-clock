@@ -1,0 +1,34 @@
+.g-layer-successClock{ width: 570rpx; padding-top: 306rpx; }
+.g-layer-successClock .box{ padding: 112rpx 0 44rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210209_1.png") no-repeat center/100% 100%; }
+.g-layer-successClock .box .banner{ top: -306rpx; left: 23rpx; right: 23rpx; height: 420rpx; }
+.g-layer-successClock .box .nav{ padding: 38rpx 0; color: #955527; }
+.g-layer-successClock .box .nav .item .txt1{ margin-bottom: 18rpx; }
+.g-layer-successClock .box .tip{ color: #955527; margin-bottom: 26rpx; }
+.g-layer-successClock .box .btn{ padding: 0 70rpx; }
+.g-layer-successClock .box .btn .item{ height: 80rpx; background: linear-gradient(180deg, #FCD26E 0%, #FDAF11 100%); box-shadow: 0 2rpx 14rpx 0 rgba(176, 167, 148, 0.53);}
+.g-layer-successClock .box .btn .item .icon{ flex: 0 0 48rpx; width: 48rpx; height: 48rpx; margin-right: 18rpx; }
+.g-layer-successClock .close{ margin-top: 58rpx; }
+.g-layer-successClock .close .item{ flex: 0 0 64rpx; width: 64rpx; height: 64rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210128_1.png") no-repeat center/64rpx auto; }
+
+.g-layer-shareType{ width: 570rpx; }
+.g-layer-shareType .box{ height: 446rpx; }
+.g-layer-shareType .box .title{ padding: 38rpx 0 68rpx; }
+.g-layer-shareType .box .nav .item{ flex: 0 0 170rpx; padding-top: 158rpx; }
+.g-layer-shareType .box .nav .item1{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210131_8.png") no-repeat top center/120rpx auto; }
+.g-layer-shareType .box .nav .item2{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210131_9.png") no-repeat top center/120rpx auto; }
+.g-layer-shareType .close{ margin-top: 58rpx; }
+.g-layer-shareType .close .item{ flex: 0 0 64rpx; width: 64rpx; height: 64rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210128_1.png") no-repeat center/64rpx auto; }
+
+.g-layer-thanks{ width: 450rpx; height: 836rpx; background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210206_9.png") no-repeat center/100% 100%; }
+
+
+
+.g-layer-canvasClock{ width: 600rpx; background: transparent; }
+.g-layer-canvasClock .box .header{ padding-bottom: 60rpx; height: 960rpx; }
+.g-layer-canvasClock .box .footer{ height: 88rpx; }
+.g-layer-canvasClock .box .footer .item{ flex: 0 0 250rpx; }
+.g-layer-canvasClock .box .footer .item .icon{ flex: 0 0 44rpx; height: 44rpx; width: 44rpx; margin-right: 8rpx; }
+.g-layer-canvasClock .box .footer .item1{ border: 3rpx solid #C6C6C6; }
+.g-layer-canvasClock .box .footer .item2{ background: linear-gradient(90deg, #01CC9A 0%, #49EED3 100%); }
+.g-layer-canvasClock .box .footer .item1 .icon{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210207_5.png") no-repeat center/44rpx auto; }
+.g-layer-canvasClock .box .footer .item2 .icon{ background: url("https://6661-fatlossclock-9gpwsn3r2ed98f31-1304792319.tcb.qcloud.la/static/img/20210207_6.png") no-repeat center/44rpx auto; }

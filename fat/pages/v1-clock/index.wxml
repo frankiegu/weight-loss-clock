@@ -1,0 +1,145 @@
+<!--pages/v1-clock/index.wxml-->
+
+<wxs module="turnRmbFun" src="../../base/turnRmb.wxs"></wxs>
+<gStatusbar type="1" title="" theme="{{ theme }}"></gStatusbar>
+
+<view class="clockWrap" wx:if="{{ todayInfo != '' }}">
+  <view class="wrap">
+    <!--  -->
+    <view class="header g-c-white">
+      <view class="box">
+        <view class="date g-font-size28">{{ todayInfo.today }}</view>
+        <view class="title g-font-size36">今日体重</view>
+        <view class="weight">
+          <picker class="g-pointer" mode="multiSelector" bindchange="changeWeightFun" value="{{ weightArrIndex }}" range="{{ weightArr }}">
+            <view class="item1"><text class="txt1 g-font-500 g-font-size60">{{ weight }}</text><text class="txt2 g-font-size32">kg</text></view>
+            <view class="item2"></view>
+          </picker> 
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="section">
+      <view class="ul">
+        <view class="li g-bg-white g-radius14">
+          <view class="title g-flex g-flex-i-center">
+            <image class="icon icon1"></image>
+            <view class="txt g-font-500 g-font-size36">早餐</view>
+          </view>
+          <view class="cont">
+            <textarea placeholder="输入您今日的早餐" placeholder-class="g-font-size28 g-c-999" disabled="{{ successLayerShow }}"
+            data-txt="breakfast" bindinput="inputFun" value="{{ breakfast }}"
+              class="g-font-size28" maxlength="200" auto-height="true"></textarea>
+            </view>
+        </view>
+        <view class="li g-bg-white g-radius14">
+          <view class="title g-flex g-flex-i-center">
+            <image class="icon icon2"></image>
+            <view class="txt g-font-500 g-font-size36">午餐</view>
+          </view>
+          <view class="cont">
+            <textarea placeholder="输入您今日的午餐" placeholder-class="g-font-size28 g-c-999"  disabled="{{ successLayerShow }}"
+            data-txt="lunch" bindinput="inputFun" value="{{ lunch }}"
+              class="g-font-size28" maxlength="200" auto-height="true"></textarea>
+          </view>
+        </view>
+        <view class="li g-bg-white g-radius14">
+          <view class="title g-flex g-flex-i-center">
+            <image class="icon icon3"></image>
+            <view class="txt g-font-500 g-font-size36">晚餐</view>
+          </view>
+          <view class="cont">
+            <textarea placeholder="输入您今日的晚餐" placeholder-class="g-font-size28 g-c-999"  disabled="{{ successLayerShow }}"
+            data-txt="dinner" bindinput="inputFun" value="{{ dinner }}"
+              class="g-font-size28" maxlength="200" auto-height="true"></textarea>
+          </view>
+        </view>
+        <view class="li g-bg-white g-radius14">
+          <view class="title g-flex g-flex-i-center">
+            <image class="icon icon4"></image>
+            <view class="txt g-font-500 g-font-size36">加餐</view>
+          </view>
+          <view class="cont">
+            <textarea placeholder="输入您今日加餐" placeholder-class="g-font-size28 g-c-999"  disabled="{{ successLayerShow }}"
+            data-txt="snack" bindinput="inputFun" value="{{ snack }}"
+              class="g-font-size28" maxlength="200" auto-height="true"></textarea>
+          </view>
+        </view>
+        <view class="li g-bg-white g-radius14">
+          <view class="title g-flex g-flex-i-center">
+            <image class="icon icon5"></image>
+            <view class="txt g-font-500 g-font-size36">活动</view>
+          </view>
+          <view class="cont">
+            <textarea placeholder="输入您今日的运动" placeholder-class="g-font-size28 g-c-999" disabled="{{ successLayerShow }}"
+            data-txt="sports" bindinput="inputFun" value="{{ sports }}"
+              class="g-font-size28" maxlength="200" auto-height="true"></textarea>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="footer">
+      <view class="g-pointer g-font-500 g-radius43 tc g-font-size32 g-btn btn" bindtap="querySaveInfoFun">保存今日打卡数据</view>
+    </view>
+    <!--  -->
+  </view>
+  <!--  -->
+  <gfooter></gfooter>
+  <!--  -->
+</view>
+
+<!-- 打卡成功弹窗 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ !successLayerShow }}" catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-successClock {{ successLayerShow ? 'active' : '' }}"
+  catchtouchmove="true">
+  <view class="box pr g-radius16">
+    <view class="banner po g-flex g-flex-c-center">
+      <image src="{{ defaultImgUrl }}2021022_17.png" class="g-wh-full"></image>
+    </view>
+    <view class="nav g-flex g-flex-i-center">
+      <view class="item g-flex-grow1 tc">
+        <view class="txt1 g-font-500 g-font-size44">{{ todayWeight }}</view>
+        <view class="txt2 g-font-size28">今日体重(kg)</view>
+      </view>
+      <view class="item g-flex-grow1 tc">
+        <view class="txt1 g-font-500 g-font-size44">{{ friendsRank }}</view>
+        <view class="txt2 g-font-size28">好友榜</view>
+      </view>
+      <view class="item g-flex-grow1 tc">
+        <view class="txt1 g-font-500 g-font-size44">{{turnRmbFun.api(signDaySum)}}</view>
+        <view class="txt2 g-font-size28">累计打卡(天)</view>
+      </view>
+    </view>
+    <view class="tip tc">请再接再厉哦！</view>
+    <view class="btn">
+      <view class="item g-flex g-flex-c-center g-flex-i-center g-radius40">
+        <image src="{{ defaultImgUrl }}2021022_7.png" class="icon"></image>
+        <view class="txt g-c-white g-font-size32 g-font-500"  bindtap="showTodayCanvasFun">分享给好友</view>
+      </view>
+    </view>
+  </view>
+  <view class="close g-flex g-flex-c-center">
+    <view class="item g-pointer" bindtap="closeSuccessLayerFun"></view>
+  </view>
+</view>
+
+<!-- 分享日签 海报图 -->
+<view class="pf g-layer-shadow z-index99 g-pointer" hidden="{{ todayCanvas.layerHide }}" catchtouchmove="true"></view>
+<view class="pf z-index999 g-layer-center g-layer-canvasClock {{ !todayCanvas.layerHide ? 'active' : '' }}" catchtouchmove="true">
+  <view class="box">
+    <view class="header"><image src="{{ todayCanvas.banner }}" class="g-wh-full"></image></view>
+    <view class="footer g-flex g-flex-c-around">
+      <view class="item g-radius44 g-c-white g-font-500 item1 g-flex g-flex-i-center g-flex-c-center" bindtap="saveTodayCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">保存到相册</view>
+      </view>
+      <view class="item g-radius44 g-c-white g-font-500 item2 g-flex g-flex-i-center g-flex-c-center" bindtap="saveTodayCanvasFun">
+        <view class="icon"></view>
+        <view class="txt g-font-size32">分享海报</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 分享日签 海报图 画板 -->
+<view hidden="{{ todayCanvas.canvasHide }}"><canvas canvas-id="todayCanvas" style="width: {{ todayCanvas.width }}px; height: {{ todayCanvas.height }}px;"/></view>

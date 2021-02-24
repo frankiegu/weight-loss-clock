@@ -1,0 +1,21 @@
+<gStatusbar type="1" title="" theme="default"></gStatusbar>
+<view class="targetWrap">
+  <view class="wrap">
+    <view class="title g-flex g-flex-i-center g-flex-c-center g-c-white">
+      <text class="txt1 g-font-size76">{{ weight }}</text>
+      <text class="txt2 g-font-size44">kg</text>
+    </view>
+    <view class="cont">
+      <scale min="30" 
+        max="200" 
+        int="{{false}}" 
+        single="10" 
+        h="60" 
+        active="{{ weight }}" 
+        styles="{{styles}}" 
+        id="weight"
+        bindvalue="changeRulerFun"></scale>
+    </view>
+    <view class="btn g-flex g-flex-c-center"><view class="g-pointer g-font-500 g-radius43 tc g-font-size32 g-btn item" bindtap="querySaveTargetFun">保存目标</view></view>
+  </view>
+</view>
