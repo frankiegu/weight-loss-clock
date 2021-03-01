@@ -2,8 +2,10 @@
 ---
 基于“微信小程序”实现的减肥打卡小程序，支持记录体重、运动步数、个性海报、图表分析、排行榜、好友榜、打赏、编辑目标体重、精选文章推荐等多功能。
 
-
 项目原型地址：[https://org.modao.cc/square/mtklir3zoji5vgrc](https://github.com/aowuge/weight-loss-clock)
+
+
+CSDN地址：[https://blog.csdn.net/elk_2021/article/details/114028751](https://blog.csdn.net/elk_2021/article/details/114028751)
 
 原型预览二维码：
  ![原型二维码图](https://img-blog.csdnimg.cn/20210224164405131.png#pic_center)
