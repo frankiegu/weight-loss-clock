@@ -9,7 +9,8 @@
  ![原型二维码图](https://img-blog.csdnimg.cn/20210224164405131.png#pic_center)
 微信号：**aowuge**  
 部署文档、接口文档、后台接口、图片资源、设计图、建议意见等微信联系
-作者微信二维码：![作者二维码](https://img-blog.csdnimg.cn/20210224164437340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Vsa18yMDIx,size_16,color_FFFFFF,t_70#pic_center)
+作者微信二维码：
+![作者二维码](https://img-blog.csdnimg.cn/20210224164437340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Vsa18yMDIx,size_16,color_FFFFFF,t_70#pic_center)
 ## 在线体验
 ---
 ![小程序体验码](https://img-blog.csdnimg.cn/20210224164457472.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Vsa18yMDIx,size_16,color_FFFFFF,t_70#pic_center)
